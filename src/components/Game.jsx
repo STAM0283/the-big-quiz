@@ -6,7 +6,6 @@ import axios from "axios";
 import Score from "./Score";
 import { Card, CardText, Row, Col, Progress } from "reactstrap";
 import "./../App.css";
-// import { categoriesData } from "./categoriesData.js";
 
 function randomize(array) {
   let i, j, mixed;
@@ -34,7 +33,7 @@ function Game(props) {
       });
       setScore(array);
     }
-  }, []);
+  }, [props.gameParameters.playerNames, setScore]);
 
   let history = useHistory();
 
@@ -136,8 +135,6 @@ function Game(props) {
 
     let tmp = score;
     console.log("tmp : ", tmp)
-    // console.log("tmp2 : ", tmp.filter(player=>player.playerName===playerNames[idActualPlayer])[0].answers);
-
     let arr = tmp.filter(
       (player) => player.playerName === playerNames[idActualPlayer]
     )[0].answers;
@@ -149,26 +146,15 @@ function Game(props) {
     });
 
     setScore((prevScore) => {
-      /*console.log('Good');
-      console.log(prevScore);
-      console.log(idActualPlayer);
-      console.log(prevScore[0].playerName);
-      console.log(prevScore[1].playerName);*/
 
       let tmpArr = prevScore;
       tmpArr[idActualPlayer].answers = arr;
-      // console.log('tmpArr :', tmpArr);
-      // console.log('idActualPlayer :', idActualPlayer);
       return tmpArr;
     });
 
     setGoodAnswerModalIsOpen(true);
   };
   const handleWrongAnswer = (e) => {
-    // console.log("e.target",e.target);
-    // console.log("e.target.parentNode",e.target.parentNode);
-    // console.log("e.target.attributes.idincorrectanswer.value",parseInt(e.target.attributes.idincorrectanswer.value));
-
     setTimerOn(false);
     setTimer(
       props.gameParameters.timerParameter === 0
@@ -176,8 +162,6 @@ function Game(props) {
         : props.gameParameters.timerParameter
     );
     let tmp = score;
-    // console.log("tmp : ", tmp)
-    // console.log("tmp2 : ", tmp.filter(player=>player.playerName===playerNames[idActualPlayer])[0].answers);
     let arr = tmp.filter(
       (player) => player.playerName === playerNames[idActualPlayer]
     )[0].answers;
@@ -187,17 +171,10 @@ function Game(props) {
       idIncorrectAnswer: parseInt(e.target.attributes.idincorrectanswer.value),
       duration: timerParameter - timer,
     });
-    // console.log(arr);
+  
     setScore((prevScore) => {
-      // console.log('Wrong');
-      // console.log(prevScore);
-      // console.log(idActualPlayer);
-      // console.log(prevScore[0].playerName);
-      // console.log(prevScore[1].playerName);
       let tmpArr = prevScore;
       tmpArr[idActualPlayer].answers = arr;
-      // console.log('tmpArr :', tmpArr);
-      // console.log('idActualPlayer :', idActualPlayer);
       return tmpArr;
     });
 
@@ -221,7 +198,7 @@ function Game(props) {
           ])
         );
       });
-  }, []);
+  }, [categoryOfQuestion, difficulty, id, numberOfQuestion, props.gameParameters, questionType]);
 
   useEffect(() => {
     if (props.gameParameters.quiz !== null) {
@@ -239,7 +216,7 @@ function Game(props) {
           ])
       );
     }
-  }, [id]);
+  }, [id, props.gameParameters.quiz]);
 
   function browseTable() {
     setIdActualPlayer(
@@ -249,9 +226,6 @@ function Game(props) {
     );
     setId(id + 1);
     setQuestionNumberOfActualPlayer(questionNumberOfActualPlayer + 1);
-    // setDisplayQuestionNumber(
-    //   `${questionNumberOfActualPlayer} / ${props.gameParameters.nbQuestionsPerPlayer}`
-    // );
   }
   let catLinkImg = "";
   if (props.gameParameters.quiz !== null) {
@@ -411,25 +385,6 @@ function Game(props) {
                     {id + 1 !== numberOfQuestion ? "Next" : "results"}
                   </button>
                 </Modal>
-                {/* <div className="tableOfGamers">
-                  <table className="board">
-                    <thead>
-                      <tr>
-                        <th>The list of players</th>
-                        <th>Answer</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {props.gameParameters.playerNames.map((name) => {
-                        return (
-                          <tr key={name}>
-                            <td>{name}</td>
-                          </tr>
-                        );
-                      })}
-                    </tbody>
-                  </table>
-                </div> */}
                 <Progress
                   style={{
                     backgroundColor: "#FFE74C",
@@ -453,9 +408,6 @@ function Game(props) {
                 <CardText className="">
                   Category : {props.gameParameters.quiz[id].category}
                 </CardText>
-                {/* <CardText className="">
-                  Type : {questionType || "Any Type"}
-                </CardText> */}
                 <CardText className="">
                   Difficulty :
                   {props.gameParameters.quiz[id].difficulty === "hard" ? (

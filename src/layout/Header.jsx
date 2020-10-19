@@ -1,7 +1,4 @@
-
-// import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import React from 'react';
-import WorkingMenu from "../components/WorkingMenu";
 import "../App.css";
 import '../images/Logo.png';
 
