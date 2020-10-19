@@ -1,0 +1,449 @@
+@import url("https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@500&family=Junge&family=Montserrat+Alternates:wght@800&display=swap");
+@import url(//db.onlinewebfonts.com/c/831e1041c97169ac1d4dc3d161b235cc?family=Burbank+Big+Condensed);
+
+/* 
+font-family: 'Hind Siliguri', sans-serif;
+font-family: 'Junge', serif;
+font-family: 'Montserrat Alternates', sans-serif;
+font-family: "Burbank Big Condensed";
+*/
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.gridLayout {
+  width: 100%;
+  height: 100%;
+
+  display: grid;
+  grid-template-areas:
+    "head head"
+    "main  main"    
+    "foot  foot";
+  grid-template-rows: 100px 800px  30px;
+  grid-template-columns: 350px 1fr;
+}
+
+
+
+.header {
+  background-color: #f0f0f0;
+  grid-area: head;
+  background-image: url("./images/Logo.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.main {
+  background-color: #cccccc;
+  grid-area: main;
+  /* height:800px; */
+}
+
+.paramsSummary {
+  background-color: #cccccc;
+  grid-area: nav;
+  text-align: left;
+}
+
+.paramsSummary h5 {
+  font-weight: bold;
+}
+
+.parameters {
+  font-family: "Junge", serif;
+  margin: 15px;
+  color: #dc7f9b;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+/* CSS of the question of day */
+.answer {
+  min-width: 40%;
+  height: 75px;
+  font-size: large;
+  color: black;
+  font-weight: bold;
+  margin: 10px;
+  cursor: pointer;
+}
+button {
+  cursor: pointer;
+}
+.buttonStart {
+  background-color: "blue";
+  cursor: "pointer";
+  font-size: "large";
+  width: "30%";
+  height: "45px";
+  color: "white";
+  font-weight: "bold";
+}
+
+.daily-question {
+  margin-top: 15px;
+  color: #dc7f9b;
+  font-family: "Junge", serif;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.question-style {
+  font-size: 25px;
+  font-weight: bold;
+  color: black;
+  font-family: "Hind Siliguri", sans-serif;
+}
+
+.question-category {
+  font-family: "Hind Siliguri", sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.category-name {
+  font-family: "Hind Siliguri", sans-serif;
+  font-size: 18px;
+  text-transform: capitalize;
+}
+
+.test {
+  border: solid 4px #f6b83c !important;
+  font-family: "Junge", serif;
+  padding: 10px;
+  margin:20px;
+
+}
+.bordureCardReponse { 
+  border: 4px solid #f6b83c !important;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: grid;
+  grid-template-columns: repeat (2,1fr);
+  grid-template-rows: repeat (2,1fr);
+  grid-template-areas:"btn1 btn2"
+                      "btn3 btn4";
+}
+
+.largeBtn {
+  background-color: #dc7f9b !important;
+  margin-top: 20px;
+}
+
+
+.btnRandom0{
+  grid-area: btn1;
+}
+.btnRandom1{
+  grid-area: btn2;
+}
+.btnRandom2{
+  grid-area: btn3;
+}
+.btnRandom3{
+  grid-area: btn4;
+}
+
+
+/* /////////////////////////Parametres/////////////////////////////////// */
+
+.player-info{
+  font-family: "Hind Siliguri", sans-serif;
+  font-size: 22px; 
+  margin: 10px;
+  text-align: center;
+}
+
+.input-style{
+  font-family: "Hind Siliguri", sans-serif;
+  padding: 5px;
+  border-radius: 12px;
+  background-color: white;
+  text-align: center;
+  align-items: center;
+}
+
+.button-style {
+color: white;
+padding: 10px;
+border:0.1em solid #43404F;
+margin: 10px;
+border-radius: 12px;
+box-sizing: border-box;
+font-family: "Hind Siliguri", sans-serif;
+font-size: 20px;
+color: white;
+background-color:#DC7F9B;
+text-align:center;
+  }
+
+
+/****************************************** */
+/* CSS stats                                */
+/****************************************** */
+
+.statsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #61dafb;
+  /* width: 80%; */
+  margin-top: 5%;
+  margin-left: 5%;
+  margin-right: 5%;
+
+}
+
+.scoreContainer {
+  background-color: rgba(220, 127, 155, 0.8);
+  width: 100%;
+  margin-top:20px;
+  margin-left:10px;
+  border: 1px solid black;
+}
+
+.cardContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  font-family: "Hind Siliguri", sans-serif;
+}
+
+.playerName {
+  font-size: xx-large;
+  font-weight: bold;
+  font-family: "Hind Siliguri", sans-serif;
+}
+
+.playerScore {
+  font-size: x-large;
+  font-weight: bold;
+  font-family: "Hind Siliguri", sans-serif;
+}
+
+.questionCard {
+  font-family: "Hind Siliguri", sans-serif;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: #f6b83c;
+  border-width: 20px;
+  margin: 10px;
+  box-shadow: black;
+  box-shadow: 0px 0px 5px #0d080b;
+  width: 340px;
+  margin: 15px 45px;
+}
+
+
+.questionCard .questionCategory {
+  background-color: #0d080b;
+  color: #f0f0f0;
+  font-family: "Burbank Big Condensed";
+  font-size: x-large;
+  font-weight: bold;
+}
+
+.questionCard .questionDifficulty {
+  background-color: #dc7f9b;
+  color: #f0f0f0;
+  font-family: "Burbank Big Condensed";
+  font-size: xx-large;
+}
+
+.questionCard .questionText {
+  color: #0d080b;
+  font-family: "Hind Siliguri", sans-serif;
+  font-size: large;
+  padding: 5px;
+}
+
+.questionCard .questionAnswers {  
+  font-family: "Hind Siliguri", sans-serif;
+  padding-left: 20%;
+  text-align: left;
+}
+
+.correctAnswer {
+  color: green;
+  font-weight: bold;
+}
+
+.incorrectAnswer {
+  color: red;
+  font-weight: bold;
+}
+
+/* palette graphique */
+.colors {
+  color: #f0f0f0;
+  color: #dc7f9b;
+  color: #f6b83c;
+  color: #43404f;
+  color: #0d080b;
+}
+/************************ */
+/* /////////////////////////Modal//////////////////////////// */
+
+.modal-answer{
+  font-family: "Hind Siliguri", sans-serif;
+  color: black;
+}
+
+/* //////////////////Game Card////////////////////// */
+
+.game-card {
+  border: solid 4px #f6b83c !important;
+  font-family: "Junge", serif;
+  padding: 10px;
+  margin-top: 20px;
+  box-shadow: 10px 5px 5px grey;
+}
+
+
+.buttonAnswer_0{
+  background-color: #E0B5E3;
+  color: black; 
+  grid-area: button1;
+  }
+
+.buttonAnswer_1{
+  background-color: #D1C2EB;
+  color: black;
+  grid-area: button2;
+}
+.buttonAnswer_2{
+  background-color: #E3CACD;
+  color: black; 
+  grid-area: button3;
+}
+.buttonAnswer_3{
+  background-color: #FDF1D8;
+  color: black;
+  grid-area: button4;
+}   
+  
+.game-parameter{
+  font-family: "Hind Siliguri", sans-serif;
+  font-size: 18px;
+  text-transform: capitalize;
+}
+
+/* /////////////Footer//////////////////// */
+
+
+
+.footer li {
+  display: flex;
+  background-color: #dddddd;
+  /* grid-area: foot; */
+  margin-top: 40px;
+  margin-right: 40px;
+  justify-content: space-between;
+  text-align: center;
+}
+
+li{
+  border-right: 1px solid white;
+  padding-right: 35px;;
+  margin-top: 15px;
+}
+
+footer {
+  grid-area: foot;
+  justify-items: center;
+  flex-direction: column;
+  width: 100vw;
+  background-color: #43404F;
+  height: 200px;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+footer hr{
+  border-top-color:#bbb;
+  opacity:0.5;
+  width: 95%;
+}
+
+footer p{
+  margin-top: 20px;
+  margin-bottom: 20px;;
+  font-size: 18px;
+  font-family: 'Hind Siliguri', sans-serif;
+  color: white;
+}
+
+.linkedin {
+  display: flex;
+  list-style-type: none;
+  line-height: 2;
+  justify-items: center;
+  justify-content: space-between;
+  margin-right: 30px;
+}
+
+.linkedin li a {
+  color: white;
+  font-weight: bold;
+  font-family: 'Junge', serif;
+  font-size: 15px;
+}
+
+.wild{
+font-family: 'Montserrat Alternates', sans-serif;
+color: white;
+font-size: 16px;
+}
+
+.wild-logo{
+width: 100px;
+margin-bottom: 5px;
+}
+
+
+ /* Game */
+
+ .answerClass {
+   display: grid;
+   grid-template-columns: repeat(2, 1fr);
+   grid-template-rows: repeat(2, 1fr);
+   grid-template-areas: "button1 button2"
+                        "button3 button4 ";
+ }
