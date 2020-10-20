@@ -33,7 +33,7 @@ function Game(props) {
       });
       setScore(array);
     }
-  });
+  }, [props.gameParameters.playerNames, setScore]);
 
   let history = useHistory();
 
@@ -198,7 +198,7 @@ function Game(props) {
           ])
         );
       });
-  });
+  }, [categoryOfQuestion, id, difficulty, numberOfQuestion, questionType]);
 
   useEffect(() => {
     if (props.gameParameters.quiz !== null) {
@@ -216,7 +216,7 @@ function Game(props) {
           ])
       );
     }
-  }, [id]);
+  }, [id, props.gameParameters.quiz, props.gameParameters]);
 
   function browseTable() {
     setIdActualPlayer(
