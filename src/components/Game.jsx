@@ -216,7 +216,7 @@ function Game(props) {
           ])
       );
     }
-  }, [id, props.gameParameters.quiz]);
+  }, [id]);
 
   function browseTable() {
     setIdActualPlayer(
