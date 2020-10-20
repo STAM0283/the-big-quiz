@@ -33,7 +33,7 @@ function Game(props) {
       });
       setScore(array);
     }
-  }, []);
+  });
 
   let history = useHistory();
 
@@ -198,7 +198,7 @@ function Game(props) {
           ])
         );
       });
-  }, []);
+  });
 
   useEffect(() => {
     if (props.gameParameters.quiz !== null) {
@@ -216,7 +216,7 @@ function Game(props) {
           ])
       );
     }
-  }, [id]);
+  }, [id, props.gameParameters.quiz]);
 
   function browseTable() {
     setIdActualPlayer(
