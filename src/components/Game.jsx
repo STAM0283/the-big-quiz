@@ -181,8 +181,10 @@ function Game(props) {
     /******************************************************************************************* */
     setWrongAnswerModalIsOpen(true);
   };
-
+  
   useEffect(() => {
+   
+
     axios
       .get(
         `https://opentdb.com/api.php?amount=${numberOfQuestion}&category=${categoryOfQuestion}&difficulty=${difficulty}&type=${questionType}`
@@ -197,6 +199,7 @@ function Game(props) {
             [res.data.results[id].incorrect_answers[2], 2],
           ])
         );
+        
       });
   }, [categoryOfQuestion, id, difficulty, numberOfQuestion, questionType]);
 
